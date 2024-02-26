@@ -1,0 +1,88 @@
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (59.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "widgets_development"[0m
+  [1m[35m (96.1ms)[0m  [1m[35mCREATE DATABASE "widgets_development" ENCODING = 'utf8'[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (20.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (0)[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-05 22:12:59.061520', '2023-11-05 22:12:59.061525') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '34f0d9df3e6593e2828215d39b5de559fd82053b', '2023-11-05 22:12:59.071718', '2023-11-05 22:12:59.071722') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 172.24.0.1 at 2023-11-05 22:13:17 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 172.18.0.0/172.18.255.255, 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.3ms | Allocations: 373)
+Completed 200 OK in 131ms (Views: 29.2ms | ActiveRecord: 0.0ms | Allocations: 7877)
+
+
+Started GET "/widgets" for 172.24.0.1 at 2023-11-05 22:13:21 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 172.18.0.0/172.18.255.255, 127.0.0.0/127.255.255.255, ::1
+Processing by WidgetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering widgets/index.html.erb within layouts/application
+  Rendered widgets/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 362)
+  Rendered layout layouts/application.html.erb (Duration: 1024.8ms | Allocations: 98512)
+Completed 200 OK in 1037ms (Views: 1033.0ms | ActiveRecord: 0.0ms | Allocations: 99568)
+
+
+Started GET "/widgets/1" for 172.24.0.1 at 2023-11-05 22:13:32 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 172.18.0.0/172.18.255.255, 127.0.0.0/127.255.255.255, ::1
+Processing by WidgetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering widgets/show.html.erb within layouts/application
+  Rendered widgets/show.html.erb within layouts/application (Duration: 51.6ms | Allocations: 4743)
+  Rendered layout layouts/application.html.erb (Duration: 63.7ms | Allocations: 6684)
+Completed 200 OK in 68ms (Views: 65.0ms | ActiveRecord: 0.0ms | Allocations: 7215)
+
+
+Started GET "/widgets/1" for 172.24.0.1 at 2023-11-05 22:14:35 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 172.18.0.0/172.18.255.255, 127.0.0.0/127.255.255.255, ::1
+Processing by WidgetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering widgets/show.html.erb within layouts/application
+  Rendered widgets/show.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2258)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2351)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 3491)
+
+
+  
+ActionView::Template::Error (undefined method `styled_widgetid' for #<ActionView::Base:0x0000000000f848>):
+    1: <h1><%= @widget.name %></h1>
+    2: <%# START:edit:3 %>
+    3: <h2>ID #<%= styled_widgetid(@widget) %></h2>
+    4: <%# END:edit:3 %>
+    5: <% if flash[:notice].present? %>
+    6:   <aside>
+  
+app/views/widgets/show.html.erb:3
+Started GET "/widgets/1" for 172.24.0.1 at 2023-11-05 22:14:48 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 172.18.0.0/172.18.255.255, 127.0.0.0/127.255.255.255, ::1
+Processing by WidgetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering widgets/show.html.erb within layouts/application
+  Rendered widgets/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1972)
+  Rendered layout layouts/application.html.erb (Duration: 38.5ms | Allocations: 15611)
+Completed 200 OK in 47ms (Views: 44.2ms | ActiveRecord: 0.0ms | Allocations: 16750)
+
+
+Started GET "/widgets/12345" for 172.24.0.1 at 2023-11-05 22:15:40 +0000
+Cannot render console from 172.24.0.1! Allowed networks: 172.18.0.0/172.18.255.255, 127.0.0.0/127.255.255.255, ::1
+Processing by WidgetsController#show as HTML
+  Parameters: {"id"=>"12345"}
+  Rendering layout layouts/application.html.erb
+  Rendering widgets/show.html.erb within layouts/application
+  Rendered widgets/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1243)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 3173)
+Completed 200 OK in 19ms (Views: 15.8ms | ActiveRecord: 0.0ms | Allocations: 3627)
+
+

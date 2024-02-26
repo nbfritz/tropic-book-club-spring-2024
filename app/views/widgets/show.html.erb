@@ -1,0 +1,12 @@
+<h1><%= @widget.name %></h1>
+<%# START:edit:3 %>
+<h2>ID #<%= @widget.widget_id %></h2>
+<%# END:edit:3 %>
+<% if flash[:notice].present? %>
+  <aside>
+    <%= flash[:notice] %>
+  </aside>
+<% end %>
+
+<%= render(WidgetRatingComponent.new(widget: @widget,
+                                     show_cta: false)) %>
