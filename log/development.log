@@ -1,0 +1,37 @@
+  ActiveRecord::SchemaMigration Load (1.1ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
+  ActiveRecord::SchemaMigration Load (0.5ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
+   (98.3ms)  DROP DATABASE IF EXISTS "widgets_development"
+   (78.8ms)  CREATE DATABASE "widgets_development" ENCODING = 'utf8'
+  SQL (0.9ms)  CREATE EXTENSION IF NOT EXISTS "plpgsql"
+   (8.8ms)  CREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)
+  ActiveRecord::SchemaMigration Load (0.6ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
+   (1.1ms)  INSERT INTO "schema_migrations" (version) VALUES (0)
+   (7.3ms)  CREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)
+  ActiveRecord::InternalMetadata Load (1.0ms)  SELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1  [[nil, "environment"]]
+  ActiveRecord::InternalMetadata Create (1.5ms)  INSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-06 20:13:19.184057', '2023-11-06 20:13:19.184061') RETURNING "key"
+  ActiveRecord::InternalMetadata Load (0.4ms)  SELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1  [[nil, "environment"]]
+  ActiveRecord::InternalMetadata Load (0.3ms)  SELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1  [[nil, "schema_sha1"]]
+  ActiveRecord::InternalMetadata Create (1.0ms)  INSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '34f0d9df3e6593e2828215d39b5de559fd82053b', '2023-11-06 20:13:19.192990', '2023-11-06 20:13:19.192994') RETURNING "key"
+  ActiveRecord::SchemaMigration Load (0.2ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
+Started GET "/" for 172.24.0.1 at 2023-11-06 20:13:36 +0000
+  ActiveRecord::SchemaMigration Load (1.0ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.1ms | Allocations: 374)
+Completed 200 OK in 133ms (Views: 34.3ms | ActiveRecord: 0.0ms | Allocations: 7880)
+
+
+Started GET "/" for 172.24.0.3 at 2023-11-06 20:13:52 +0000
+Processing by Rails::WelcomeController#index as */*
+  Rendering /usr/local/bundle/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 12)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 290)
+
+
+Started GET "/" for 172.24.0.3 at 2023-11-06 20:14:29 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/bundle/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/bundle/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 12)
+Completed 200 OK in 7ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 210)
+
+
