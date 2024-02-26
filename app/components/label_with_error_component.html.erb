@@ -1,0 +1,7 @@
+<% if record.errors[field_name].blank? %>
+  <%= form.label field_name, class: "fw4 i" %>
+<% else %>
+  <%= form.label field_name,
+    record.errors.full_messages_for(field_name).join(", "),
+    class: "i b dark-red" %>
+<% end %>
