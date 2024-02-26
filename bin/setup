@@ -1,0 +1,119 @@
+#!/usr/bin/env ruby
+
+require "optparse"
+
+def setup
+# START:edit:3
+  if ENV["CI"] == "true"
+    log "Running in CI environment"
+
+    log "Creating .env.development.local"
+    File.open(".env.development.local","w") do |file|
+      file.puts "REDIS_URL=redis://ci-redis:3456/1"
+    end
+
+    log "Creating .env.test.local"
+    File.open(".env.test.local","w") do |file|
+      file.puts "REDIS_URL=redis://ci-redis:3456/2"
+    end
+  elsif ENV["CI"] != nil
+    # Detect if what we believe to be true about the CI env var
+    # is, in fact, still the case.
+    fail "Problem: CI is set to #{ENV['CI']}, but we expect " + 
+         "either 'true' or nil"
+  else
+    log "Assuming we are running in a local development environment"
+  end
+# END:edit:3
+  log "Installing gems"
+  # Only do bundle install if the much-faster
+  # bundle check indicates we need to
+  system! "bundle check || bundle install"
+
+  log "Dropping & recreating the development database"
+  # Note that the very first time this runs, db:reset
+  # will fail, but this failure is fixed by
+  # doing a db:migrate
+  system! "bin/rails db:reset || bin/rails db:migrate"
+
+  log "Dropping & recreating the test database"
+  # Setting the RAILS_ENV explicitly to be sure
+  # we actually reset the test database
+  system!({ "RAILS_ENV" => "test" }, "bin/rails db:reset")
+
+  log "All set up."
+  log ""
+  log "To see commonly-needed commands, run:"
+  log ""
+  log "    bin/setup help"
+  log ""
+end
+
+def help
+  puts "Usage: #{$0}"
+  puts ""
+  puts "Installs gems, recreates dev database, and generally"
+  puts "prepares the app to be run locally"
+  puts ""
+  puts "Other useful commands:"
+  puts ""
+  puts "  bin/dev"
+  puts "     # run app locally"
+  puts ""
+  puts "  LOGRAGE_IN_DEVELOPMENT=true bin/dev"
+  puts "     # run app locally using"
+  puts "     # production-like logging"
+  puts ""
+  puts ""
+  puts "  bin/ci"
+  puts "     # runs all tests and checks as CI would"
+  puts ""
+  puts "  bin/rails test"
+  puts "     # run non-system tests"
+  puts ""
+  puts "  bin/rails test:system"
+  puts "     # run system tests"
+  puts ""
+  puts "  bin/setup help"
+  puts "     # show this help"
+  puts ""
+end
+
+# start of helpers
+
+# We don't want the setup method to have to do all this error
+# checking, and we also want to explicitly log what we are
+# executing. Thus, we use this method instead of Kernel#system
+def system!(*args)
+  log "Executing #{args}"
+  if system(*args)
+    log "#{args} succeeded"
+  else
+    log "#{args} failed"
+    abort
+  end
+end
+
+# It's helpful to know what messages came from this
+# script, so we'll use log instead of `puts`
+def log(message)
+  puts "[ bin/setup ] #{message}"
+end
+
+# end of helpers
+
+OptionParser.new do |parser|
+  parser.on("-h", "--help") do
+    help
+    exit
+  end
+end.parse!
+
+if ARGV[0] == "help"
+  help
+elsif !ARGV[0].nil?
+  puts "Unknown argument: '#{ARGV[0]}'"
+  exit 1
+else
+  setup
+end
