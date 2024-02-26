@@ -1,0 +1,95 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (51.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "widgets_development"[0m
+  [1m[35m (73.3ms)[0m  [1m[35mCREATE DATABASE "widgets_development" ENCODING = 'utf8'[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-10-25 22:37:24.167645', '2023-10-25 22:37:24.167648') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '51a711c46dbe466de6afa4687b40d8af05b84e3f', '2023-10-25 22:37:24.169110', '2023-10-25 22:37:24.169111') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mWidget Load (0.5ms)[0m  [1m[34mSELECT "widgets".* FROM "widgets"[0m
+  [1m[36mManufacturer Load (0.2ms)[0m  [1m[34mSELECT "manufacturers".* FROM "manufacturers"[0m
+  [1m[36mAddress Load (0.1ms)[0m  [1m[34mSELECT "addresses".* FROM "addresses"[0m
+  [1m[36mWidgetStatus Load (0.2ms)[0m  [1m[34mSELECT "widget_statuses".* FROM "widget_statuses"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWidgetStatus Create (1.0ms)[0m  [1m[32mINSERT INTO "widget_statuses" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Fresh"], ["created_at", "2023-10-25 22:37:24.237411"], ["updated_at", "2023-10-25 22:37:24.237411"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAddress Create (1.4ms)[0m  [1m[32mINSERT INTO "addresses" ("street", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["street", "332 Carline Mews"], ["zip", "38620-0959"], ["created_at", "2023-10-25 22:37:25.288843"], ["updated_at", "2023-10-25 22:37:25.288843"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mManufacturer Create (1.5ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Thompson, Block and Botsford"], ["address_id", 1], ["created_at", "2023-10-25 22:37:25.299161"], ["updated_at", "2023-10-25 22:37:25.299161"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAddress Create (0.8ms)[0m  [1m[32mINSERT INTO "addresses" ("street", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["street", "2702 Bode Vista"], ["zip", "63080-1213"], ["created_at", "2023-10-25 22:37:25.302888"], ["updated_at", "2023-10-25 22:37:25.302888"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mManufacturer Create (0.7ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Kohler Inc"], ["address_id", 2], ["created_at", "2023-10-25 22:37:25.305412"], ["updated_at", "2023-10-25 22:37:25.305412"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAddress Create (0.8ms)[0m  [1m[32mINSERT INTO "addresses" ("street", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["street", "820 Lula Islands"], ["zip", "59788"], ["created_at", "2023-10-25 22:37:25.307823"], ["updated_at", "2023-10-25 22:37:25.307823"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mManufacturer Create (0.7ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Feeney Group"], ["address_id", 3], ["created_at", "2023-10-25 22:37:25.310152"], ["updated_at", "2023-10-25 22:37:25.310152"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAddress Create (0.7ms)[0m  [1m[32mINSERT INTO "addresses" ("street", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["street", "14510 Fannie Wall"], ["zip", "30287"], ["created_at", "2023-10-25 22:37:25.312643"], ["updated_at", "2023-10-25 22:37:25.312643"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mManufacturer Create (0.7ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Flatley, Streich and Crooks"], ["address_id", 4], ["created_at", "2023-10-25 22:37:25.314747"], ["updated_at", "2023-10-25 22:37:25.314747"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAddress Create (0.7ms)[0m  [1m[32mINSERT INTO "addresses" ("street", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["street", "8097 Johns Villages"], ["zip", "39644"], ["created_at", "2023-10-25 22:37:25.317032"], ["updated_at", "2023-10-25 22:37:25.317032"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mManufacturer Create (0.7ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Marvin LLC"], ["address_id", 5], ["created_at", "2023-10-25 22:37:25.319091"], ["updated_at", "2023-10-25 22:37:25.319091"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAddress Create (0.8ms)[0m  [1m[32mINSERT INTO "addresses" ("street", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["street", "4271 Corkery Forest"], ["zip", "14429"], ["created_at", "2023-10-25 22:37:25.321389"], ["updated_at", "2023-10-25 22:37:25.321389"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mManufacturer Create (0.7ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Runolfsdottir Group"], ["address_id", 6], ["created_at", "2023-10-25 22:37:25.323550"], ["updated_at", "2023-10-25 22:37:25.323550"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAddress Create (0.7ms)[0m  [1m[32mINSERT INTO "addresses" ("street", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["street", "58111 Carline Harbor"], ["zip", "33623"], ["created_at", "2023-10-25 22:37:25.325865"], ["updated_at", "2023-10-25 22:37:25.325865"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mManufacturer Create (0.6ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Auer-Jacobson"], ["address_id", 7], ["created_at", "2023-10-25 22:37:25.328095"], ["updated_at", "2023-10-25 22:37:25.328095"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAddress Create (0.7ms)[0m  [1m[32mINSERT INTO "addresses" ("street", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["street", "82889 Ullrich Junction"], ["zip", "49678-6388"], ["created_at", "2023-10-25 22:37:25.330361"], ["updated_at", "2023-10-25 22:37:25.330361"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mManufacturer Create (0.6ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Schroeder, Fisher and Waters"], ["address_id", 8], ["created_at", "2023-10-25 22:37:25.332446"], ["updated_at", "2023-10-25 22:37:25.332446"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAddress Create (0.7ms)[0m  [1m[32mINSERT INTO "addresses" ("street", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["street", "39016 Maude Center"], ["zip", "75853-9429"], ["created_at", "2023-10-25 22:37:25.334725"], ["updated_at", "2023-10-25 22:37:25.334725"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mManufacturer Create (0.6ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Bins Inc"], ["address_id", 9], ["created_at", "2023-10-25 22:37:25.336819"], ["updated_at", "2023-10-25 22:37:25.336819"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAddress Create (30.5ms)[0m  [1m[32mINSERT INTO "addresses" ("street", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["street", "2791 Romaguera View"], ["zip", "77492"], ["created_at", "2023-10-25 22:37:25.338997"], ["updated_at", "2023-10-25 22:37:25.338997"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mManufacturer Create (0.8ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Schumm Group"], ["address_id", 10], ["created_at", "2023-10-25 22:37:25.370947"], ["updated_at", "2023-10-25 22:37:25.370947"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAddress Create (0.7ms)[0m  [1m[32mINSERT INTO "addresses" ("street", "zip", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["street", "42335 Salley Rest"], ["zip", "94241"], ["created_at", "2023-10-25 22:37:25.373444"], ["updated_at", "2023-10-25 22:37:25.373444"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mManufacturer Create (0.7ms)[0m  [1m[32mINSERT INTO "manufacturers" ("name", "address_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Cyberdyne Systems"], ["address_id", 11], ["created_at", "2023-10-25 22:37:25.375605"], ["updated_at", "2023-10-25 22:37:25.375605"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWidgetStatus Create (0.7ms)[0m  [1m[32mINSERT INTO "widget_statuses" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "in"], ["created_at", "2023-10-25 22:37:25.382922"], ["updated_at", "2023-10-25 22:37:25.382922"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWidget Create (1.0ms)[0m  [1m[32mINSERT INTO "widgets" ("name", "price_cents", "widget_status_id", "manufacturer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Stembolt"], ["price_cents", 634079], ["widget_status_id", 2], ["manufacturer_id", 11], ["created_at", "2023-10-25 22:37:25.385363"], ["updated_at", "2023-10-25 22:37:25.385363"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mWidget Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "widgets"[0m
+  [1m[36mWidget Load (1.0ms)[0m  [1m[34mSELECT "widgets".* FROM "widgets" WHERE "widgets"."created_at" <= $1 /* loading for pp */ LIMIT $2[0m  [["created_at", "2023-09-25 22:38:03.078493"], ["LIMIT", 11]]
+  [1m[36mWidget Load (0.8ms)[0m  [1m[34mSELECT "widgets".* FROM "widgets" WHERE "widgets"."created_at" >= $1 /* loading for pp */ LIMIT $2[0m  [["created_at", "2023-09-25 22:38:21.040664"], ["LIMIT", 11]]
